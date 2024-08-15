@@ -31,6 +31,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 1000;
 }
 
 nav ul {
@@ -56,26 +57,39 @@ section {
   margin-bottom: 2rem;
 }
 
+#hero {
+  text-align: center;
+  padding: 4rem 0;
+}
+
 #about {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
-#about img {
-  width: 150px;
-  height: 150px;
+.profile-photo {
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
-  margin-right: 2rem;
+  object-fit: cover;
+  margin-bottom: 2rem;
+  border: 3px solid var(--primary-color);
 }
 
-#work {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+.about-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
 .project {
-  flex: 1 1 300px;
   border: 1px solid var(--secondary-color);
   padding: 1rem;
   text-align: center;
@@ -86,20 +100,50 @@ section {
   height: auto;
 }
 
-.project:first-child {
-  flex-basis: 100%;
+.project-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
 }
 
-.project:first-child img {
-  max-height: 400px;
-  width: auto;
+#contact-form {
+  max-width: 500px;
+  margin: 0 auto;
 }
 
-#contact {
+#contact-form label {
+  display: block;
+  margin-top: 1rem;
+}
+
+#contact-form input,
+#contact-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+#contact-form button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+footer {
   background-color: var(--secondary-color);
   color: white;
-  padding: 2rem;
   text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -112,18 +156,8 @@ section {
     margin-top: 1rem;
   }
 
-  #about {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  #about img {
-    margin-right: 0;
-    margin-bottom: 1rem;
-  }
-
-  .project {
-    flex-basis: 100%;
+  .project-grid {
+    grid-template-columns: 1fr;
   }
 }
 
